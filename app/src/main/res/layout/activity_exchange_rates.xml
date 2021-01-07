@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:ignore="ContentDescription">
+
+    <com.noxpa.exchangeratestask.custom.ToolbarView
+        android:id="@+id/toolbar_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_view_height"
+        app:toolbar_view_title="@string/currency_rates"
+        app:toolbar_view_image_right="@drawable/toolbar_view_image_graph"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/toolbar_view_style"/>
+
+    <TextView
+        android:id="@+id/privatbank_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/exchange_rates_table_title_margin"
+        android:text="@string/privatbank"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_view"
+        style="@style/exchange_rates_table_title_style"/>
+
+    <TextView
+        android:id="@+id/privatbank_exchange_rates_date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/exchange_rates_date_text_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_view"
+        tools:text="05.01.2021"
+        style="@style/exchange_rates_date_text_style"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/exchange_rate_image_date"
+        android:layout_marginEnd="@dimen/exchange_rates_image_date_margin_end"
+        app:layout_constraintBottom_toBottomOf="@+id/privatbank_exchange_rates_date_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/privatbank_exchange_rates_date_text_view"
+        app:layout_constraintTop_toTopOf="@+id/privatbank_exchange_rates_date_text_view"/>
+
+    <TextView
+        android:id="@+id/currency_table_column_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/privatbank_exchange_rates_table_column_title_margin"
+        android:text="@string/currency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privatbank_text_view"
+        style="@style/privatbank_exchange_rates_table_column_title_style"/>
+
+    <TextView
+        android:id="@+id/purchase_exchange_rate_table_column_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/privatbank_exchange_rates_table_column_title_margin_end"
+        android:text="@string/purchase"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/currency_table_column_title_text_view"
+        app:layout_constraintBottom_toBottomOf="@id/currency_table_column_title_text_view"
+        style="@style/privatbank_exchange_rates_table_column_title_style"/>
+
+    <TextView
+        android:id="@+id/sale_exchange_rate_table_column_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/privatbank_exchange_rates_table_column_title_margin"
+        android:text="@string/sell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privatbank_text_view"
+        style="@style/privatbank_exchange_rates_table_column_title_style"/>
+
+    <FrameLayout
+        android:id="@+id/privatbank_exchange_rates_container_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currency_table_column_title_text_view">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/privatbank_exchange_rates_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/privatbank_exchange_rates_table_margin_top"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_privatbank_exchange_rate"
+            tools:itemCount="3"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/nbu_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/nbu_exchange_rates_table_title_margin_start"
+        android:layout_marginTop="@dimen/nbu_exchange_rates_table_title_margin_top"
+        android:text="@string/nbu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privatbank_exchange_rates_container_frame_layout"
+        style="@style/exchange_rates_table_title_style"/>
+
+    <TextView
+        android:id="@+id/nbu_exchange_rates_date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/nbu_exchange_rates_date_text_margin_end"
+        android:layout_marginTop="@dimen/nbu_exchange_rates_date_text_margin_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privatbank_exchange_rates_container_frame_layout"
+        tools:text="05.01.2021"
+        style="@style/exchange_rates_date_text_style"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/exchange_rate_image_date"
+        android:layout_marginEnd="@dimen/exchange_rates_image_date_margin_end"
+        app:layout_constraintBottom_toBottomOf="@+id/nbu_exchange_rates_date_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/nbu_exchange_rates_date_text_view"
+        app:layout_constraintTop_toTopOf="@+id/nbu_exchange_rates_date_text_view"/>
+
+    <FrameLayout
+        android:id="@+id/nbu_exchange_rates_container_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nbu_text_view"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nbu_exchange_rates_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/nbu_exchange_rates_table_margin_top"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_nbu_exchange_rate"
+            tools:itemCount="10"/>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

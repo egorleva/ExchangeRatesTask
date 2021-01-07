@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ExchangeRatesTask</string>
+    <string name="privatbank">PrivatBank</string>
+    <string name="nbu">НБУ</string>
+    <string name="currency">Валюта</string>
+    <string name="purchase">Покупка</string>
+    <string name="sell">Продажа</string>
+    <string name="per_unit">1%1$s</string>
+    <string name="currency_rates">Курсы валют</string>
+    <string name="exchange_rates_still_not_generated">Курсы валют еще не сформированы. Выберите другую дату.</string>
+</resources>

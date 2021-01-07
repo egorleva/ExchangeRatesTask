@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nbu_exchange_rates_table_row_height"
+    android:paddingStart="@dimen/nbu_exchange_rates_table_row_padding_start"
+    android:paddingEnd="@dimen/nbu_exchange_rates_table_row_padding_end">
+
+    <TextView
+        android:id="@+id/currency_description_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Доллар США"
+        style="@style/item_nbu_exchange_rates_table_row_text_style"/>
+
+    <TextView
+        android:id="@+id/exchange_rate_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/per_unit_text_view"
+        tools:text="28.300"
+        style="@style/item_nbu_exchange_rates_table_row_text_style"/>
+
+    <TextView
+        android:id="@+id/per_unit_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exchange_rate_text_view"
+        tools:text="1USD"
+        style="@style/item_nbu_exchange_rates_table_row_text_style"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

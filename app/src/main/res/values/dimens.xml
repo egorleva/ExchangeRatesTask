@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Toolbar view dimens. -->
+    <dimen name="toolbar_view_height">55dp</dimen>
+    <dimen name="toolbar_view_title_text_size">20sp</dimen>
+    <dimen name="toolbar_view_title_margin_start">64dp</dimen>
+    <dimen name="toolbar_view_title_margin_end">64dp</dimen>
+    <dimen name="toolbar_view_image_padding">4dp</dimen>
+    <dimen name="toolbar_view_image_width">32dp</dimen>
+    <dimen name="toolbar_view_image_height">32dp</dimen>
+    <dimen name="toolbar_view_image_margin_start">16dp</dimen>
+    <dimen name="toolbar_view_image_margin_end">16dp</dimen>
+    <dimen name="toolbar_view_line_width">1dp</dimen>
+    <dimen name="toolbar_view_elevation">6dp</dimen>
+
+    <!-- Privatbank exchange rates dimens. -->
+    <dimen name="privatbank_exchange_rates_table_row_height">55dp</dimen>
+    <dimen name="privatbank_exchange_rates_table_row_margin_start">16dp</dimen>
+    <dimen name="privatbank_exchange_rates_table_row_margin_end">16dp</dimen>
+    <dimen name="privatbank_exchange_rates_table_row_text_size">24sp</dimen>
+    <dimen name="privatbank_exchange_rates_table_column_title_text_size">16sp</dimen>
+    <dimen name="privatbank_exchange_rates_table_column_title_margin">16dp</dimen>
+    <dimen name="privatbank_exchange_rates_table_column_title_margin_end">150dp</dimen>
+    <dimen name="privatbank_exchange_rates_table_margin_top">16dp</dimen>
+
+    <!-- Nbu exchange rates dimens. -->
+    <dimen name="nbu_exchange_rates_table_row_height">55dp</dimen>
+    <dimen name="nbu_exchange_rates_table_row_padding_start">16dp</dimen>
+    <dimen name="nbu_exchange_rates_table_row_padding_end">16dp</dimen>
+    <dimen name="nbu_exchange_rates_table_row_text_size">14sp</dimen>
+    <dimen name="nbu_exchange_rates_table_title_margin_start">16dp</dimen>
+    <dimen name="nbu_exchange_rates_table_title_margin_top">32dp</dimen>
+    <dimen name="nbu_exchange_rates_table_margin_top">16dp</dimen>
+    <dimen name="nbu_exchange_rates_date_text_margin_end">16dp</dimen>
+    <dimen name="nbu_exchange_rates_date_text_margin_top">32dp</dimen>
+
+    <!-- Exchange rates dimens. -->
+    <dimen name="exchange_rates_image_date_width">24dp</dimen>
+    <dimen name="exchange_rates_image_date_height">24dp</dimen>
+    <dimen name="exchange_rates_image_date_margin_end">16dp</dimen>
+    <dimen name="exchange_rates_date_text_size">18sp</dimen>
+    <dimen name="exchange_rates_date_text_margin">16dp</dimen>
+    <dimen name="exchange_rates_table_title_text_size">18sp</dimen>
+    <dimen name="exchange_rates_table_title_margin">16dp</dimen>
+</resources>
