@@ -7,6 +7,7 @@ import com.noxpa.exchangeratestask.model.PrivatbankExchangeRate
 import com.noxpa.exchangeratestask.model.PrivatbankExchangeRatesResponse
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.text.SimpleDateFormat
@@ -14,6 +15,7 @@ import java.util.*
 
 class ExchangeRatesViewModel : ViewModel() {
 
+    private val disposable = CompositeDisposable()
     private val repository = ExchangeRatesRepositoryImpl()
 
     val selectedDate = MutableLiveData<String>()
@@ -39,35 +41,27 @@ class ExchangeRatesViewModel : ViewModel() {
     }
 
     private fun getPrivatbankExchangeRates(date: String) {
-        repository.getPrivatbankExchangeRates(date)
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object: SingleObserver<PrivatbankExchangeRatesResponse> {
-                override fun onSuccess(t: PrivatbankExchangeRatesResponse) {
+        disposable.add(
+            repository.getPrivatbankExchangeRates(date)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
                     val list = mutableListOf<PrivatbankExchangeRate>()
-                    t.privatbankExchangeRates.forEach {
+                    response.privatbankExchangeRates.forEach {
                         if (isGeneralCurrency(it.currency)) list.add(it)
                     }
                     privatbankExchangeRates.value = list
-                }
-
-                override fun onError(e: Throwable) {}
-                override fun onSubscribe(d: Disposable) {}
-            })
+                }, {})
+        )
     }
 
     private fun getNbuExchangeRates(date: String) {
-        repository.getNbuExchangeRates(date)
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object: SingleObserver<List<NbuExchangeRate>> {
-                override fun onSuccess(t: List<NbuExchangeRate>) {
-                    nbuExchangeRates.value = t
-                }
-
-                override fun onError(e: Throwable) {}
-                override fun onSubscribe(d: Disposable) {}
-            })
+        disposable.add(
+            repository.getNbuExchangeRates(date)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ nbuExchangeRates.value = it }, {})
+        )
     }
 
     private fun setPrivatbankSelectedCurrency(currency: String) {
@@ -89,5 +83,10 @@ class ExchangeRatesViewModel : ViewModel() {
 
     private fun isGeneralCurrency(currency: String): Boolean {
         return currency == "USD" || currency == "EUR" || currency == "RUB"
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposable.dispose()
     }
 }
